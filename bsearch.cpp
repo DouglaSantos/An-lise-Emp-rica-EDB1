@@ -11,10 +11,10 @@ const int *lsearch(const int *first, const int *last, int value )
 		{
 			return first;
 		}
-		first++; 		
+		first++;
 	}
 	return last;
-    
+
 }
 
 
@@ -22,11 +22,11 @@ int *bsearch( int *first, int *last, int value )
 {
 	int *f = first, *l = last;
 	int *mid;
-	int aux;	
+	int aux;
 	while(f <= l){
 		aux = std::distance(f, l);
-		aux = aux/2;			  
-		mid = f+aux;			  
+		aux = aux/2;
+		mid = f+aux;
 		if (*mid == value)
 		{
 			return mid;
@@ -41,11 +41,30 @@ int *bsearch( int *first, int *last, int value )
 				f = mid+1;
 			}
 		}
-		
-	}	
+
+	}
 
     return last; // STUB
 }
+
+int *rbSearch(int *first, int *last, int value){
+
+	 if(last>=first){
+
+		 int *mid = std::distance(first, last);
+		 if(if value == *mid){
+			 return mid;
+		 }
+		 if(value < *mid){
+			 rbSearch(first, mid-1, value);
+		 }
+		 if(value > *mid){
+			 rbSearch(mid+1, last, value);
+		 }
+	}else{
+		return last;
+	}
+ }
 
 
 // Driver function.
